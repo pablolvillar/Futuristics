@@ -93,7 +93,7 @@ requestAndParse(request).onSuccess(onMainQueue) { name in
 ```
 
 There are a few differences to the non future example above:
-1. the `executeRequest` function now receives a `NSRULRequest` and returns a `Future<NSURLResponse>` that is a future value of NSURLResponse 
+1. the `executeRequest` function now receives a `NSURLRequest` and returns a `Future<NSURLResponse>` that is a future value of NSURLResponse 
 2. `requestAndParse` is a composition of `executeRequest`, `jsonFromResponse` and `extractNameFromJSON` - the signature of this function now is `NSURLRequest -> Future<String>`
 4. `jsonFromResponse` and `extractNameFromJSON` are made explicitly asynchronous by wrapping them in the `onBackgroundQueue` function
 5. the `onSuccess` and `onFailure` closures are are executed depending on the result of the Future determined by the function `requestAndParse`
